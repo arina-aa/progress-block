@@ -1,0 +1,137 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 30px 20px;
+  background-color: white;
+}
+
+.container {
+    width: 100%;
+    max-height: 568px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    align-self: flex-start;
+    font-size: 18px;
+    padding: 0;
+    margin: 0;
+    font-weight: bold;
+} 
+
+.progress-container {
+    width: 140px;
+    height: 140px;
+    transform: rotate(-90deg);
+    margin-top: clamp(32px, 15vh + 10px, 50px);
+    margin-bottom: clamp(48px, 12vh + 20px, 64px);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: auto; 
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.control-bar{
+    display: flex;
+    align-items: center;
+}
+
+.valueInput {
+    width: 48px;
+    height: 25px;
+    border-radius: 16px;
+    border: 2px black solid;
+    text-align: center;
+    font-size: 16px;
+    padding: 0 8px;
+    appearance: none; 
+    -webkit-appearance: none; 
+    -moz-appearance: textfield; 
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+        display: none;
+    }
+}
+
+.controls-label {
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+.input-checkbox{
+    appearance: none;
+    width: 48px;
+    height: 25px;
+    border-radius: 16px;
+    background-color: #ccc;
+    position: relative;
+    outline: none;
+    transition: background-color 0.3s ease;
+    margin: 0;
+    cursor: pointer;
+}
+
+.input-checkbox::before{
+    content: '';
+    position: absolute;
+    top: 2.5px;
+    left: 2.5px;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.input-checkbox:checked {
+    background-color: #007aff;
+}
+
+.input-checkbox:checked::before {
+    transform: translateX(23px);
+}
+
+@media (orientation: landscape) {
+    body{
+        padding: 20px 30px;
+    }
+    .main-block {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: clamp(40px, 20vh + 10px, 100px)
+    }
+}
+
+.progress-container.animated {
+    animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.progress-container.hidden {
+    opacity: 0;
+    pointer-events: none;
+}

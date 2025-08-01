@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress block</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>  
+    <div class="container" id="progress-block">
+        <h1 class="title">Progress</h1>
+        <div class="main-block">
+        <div class="progress-container">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                <defs> <circle id="base-circle" cx="50" cy="50" r="45" stroke-width="10" fill="transparent" /> </defs>
+                <use href="#base-circle" class="progress-circle" stroke="#ccc"/>
+                <use href="#base-circle" class="progress-bar" stroke="#007bff"/>
+            </svg>
+        </div>
+        <div class="controls">
+            <div class="control-bar">
+                <input type="number" class="valueInput" id="value-Input" min="0" max="100" value="0">
+                <label for="value-Input" class="controls-label">Value</label>
+            </div>
+            <div class="control-bar">
+                <input type="checkbox" class="input-checkbox animateSwitch" id="animate-Switch">
+                <label for="animate-Switch" class="controls-label">Animate</label>
+            </div>
+            <div class="control-bar">
+                <input type="checkbox" class="input-checkbox hideSwitch" id="hide-Switch">
+                <label for="hide-Switch" class="controls-label">Hide</label>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>
